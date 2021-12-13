@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default async function getTags() {}\n;","map":{"version":3,"sources":["/home/paulo/Desktop/Private_Blockchain/Web/WebApp/components/getTags.js"],"names":["getTags"],"mappings":"AAAA,eAAe,eAAeA,OAAf,GAAyB,CACvC;AAAA","sourcesContent":["export default async function getTags() {\n};"]},"metadata":{},"sourceType":"module"}

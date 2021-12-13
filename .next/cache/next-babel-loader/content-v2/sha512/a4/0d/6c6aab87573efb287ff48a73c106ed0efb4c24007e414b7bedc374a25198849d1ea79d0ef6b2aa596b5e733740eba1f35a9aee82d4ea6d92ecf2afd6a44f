@@ -1,0 +1,1 @@
+{"ast":null,"code":"import web3 from './web3';\nimport testContract from './build/BuyEventTest.json';\nvar instance = new web3.eth.Contract(JSON.parse(testContract[\"interface\"]), \"0x171db86cda1452d0ffda3b8fb999452f56f00c52\" // <- Buy event contract.\n);\nexport default instance;","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,13 @@
+var whitelistContract = web3.eth.contract([{"constant":true,"inputs":[{"name":"seller","type":"address"},{"name":"buyer","type":"address"}],"name":"getWhiteList","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"buyer","type":"address"}],"name":"removeWhiteList","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"buyer","type":"address"}],"name":"setWhiteList","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]);
+var whitelist = whitelistContract.new({
+     data: '0x608060405234801561001057600080fd5b5061034a806100206000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630989e1aa1461005c5780632042e5c2146100d757806339e899ee1461011a575b600080fd5b34801561006857600080fd5b506100bd600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061015d565b604051808215151515815260200191505060405180910390f35b3480156100e357600080fd5b50610118600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101f0565b005b34801561012657600080fd5b5061015b600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610287565b005b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60016000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550505600a165627a7a72305820608936af623fed9250bcffcea8952bf1d707c6127c28e2cf1fb428adfe4ecf5c0029', 
+     arguments: [
+     ],
+     from: web3.eth.accounts[0], 
+     gas: '4700000'
+}, function (e, contract){
+    console.log(e, contract);
+    if (typeof contract.address !== 'undefined') {
+         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+    }
+ })
