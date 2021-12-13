@@ -435,7 +435,7 @@ module.exports = require("web3-shh");
 /* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("meUc");
 /* harmony import */ var web3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(web3__WEBPACK_IMPORTED_MODULE_0__);
 
-const provider = new web3__WEBPACK_IMPORTED_MODULE_0___default.a.providers.HttpProvider('http://52.48.42.217:8545');
+const provider = new web3__WEBPACK_IMPORTED_MODULE_0___default.a.providers.HttpProvider('https://52.48.42.217:8545');
 var web3 = new web3__WEBPACK_IMPORTED_MODULE_0___default.a(provider);
 /* harmony default export */ __webpack_exports__["a"] = (web3); // let web3;
 // if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
