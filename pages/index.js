@@ -91,7 +91,7 @@ class TestIndex extends Component {
 
     render() {
         return (<div>
-            <div>Hello from Git!</div>
+            <div>Hello from Git to Hostgator!</div>
             <div>Welcome to the local Blockchain Network!</div>
             <h3> Make a transaction: </h3>
             <Button type='submit' onClick={this.onClick}>Submit</Button>
