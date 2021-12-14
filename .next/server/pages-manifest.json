@@ -1,12 +1,6 @@
 {
   "/_app": "pages/_app.js",
-  "/about": "pages/about.html",
-  "/data/market": "pages/data/market.js",
-  "/data/show": "pages/data/show.js",
-  "/data/submit": "pages/data/submit.html",
-  "/": "pages/index.html",
-  "/index_New": "pages/index_New.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/": "pages/index.js"
 }
