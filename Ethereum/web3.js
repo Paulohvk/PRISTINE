@@ -1,6 +1,6 @@
 import Web3 from 'web3';
 
-const provider = new Web3.providers.HttpProvider('https://52.48.42.217:8545');
+const provider = new Web3.providers.HttpProvider('http://52.48.42.217:8545');
 
 var web3 = new Web3(provider);
 
