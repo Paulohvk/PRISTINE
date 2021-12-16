@@ -97,9 +97,9 @@ class TestIndex extends Component {
         ethereum.request({ method: 'eth_requestAccounts' });
         });
 
-        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        //const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
         
-        const account = accounts[0];
+        //const account = accounts[0];
 
         return (<div>
             <div>Hello from Git to Hostgator!</div>
