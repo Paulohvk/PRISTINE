@@ -90,9 +90,17 @@ class TestIndex extends Component {
     // }
 
     render() {
-        if (typeof window.ethereum !== 'undefined') {
-            console.log('MetaMask is installed!');
-          }
+        const ethereumButton = document.querySelector('.enableEthereumButton');
+
+        ethereumButton.addEventListener('click', () => {
+        //Will Start the metamask extension
+        ethereum.request({ method: 'eth_requestAccounts' });
+        });
+
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        
+        const account = accounts[0];
+
         return (<div>
             <div>Hello from Git to Hostgator!</div>
             <div>Welcome to the local Blockchain Network!</div>
