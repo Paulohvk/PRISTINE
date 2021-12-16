@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Form, Button, Input, Message} from 'semantic-ui-react';
+import {Form, Button, Input, Message, Icon} from 'semantic-ui-react';
 import contract from '../Ethereum/contract0';
 import web3 from '../Ethereum/web3';
 import Common from 'ethereumjs-common';
@@ -7,6 +7,14 @@ import { bufferToHex, privateToAddress } from 'ethereumjs-util'
 var Tx = require('ethereumjs-tx');
 
 class TestIndex extends Component {
+    state = {
+        account: '',
+        errorMessage: '',
+        loading: false,
+        iconStatus: false,
+        iconMessage: 'Disconnected',
+        iconColour: 'red'
+    }
 
     // static async getInitialProps() {
     //     const accounts = await web3.eth.getAccounts();
@@ -89,24 +97,34 @@ class TestIndex extends Component {
     //     .on('receipt', console.log);
     // }
 
+    connectMetamask = async(event) => {
+        event.preventDefault();
+        this.setState({loading: true, errorMessage: ''});
+
+        try {
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });        
+            this.state.account = accounts[0];
+            this.state.iconColour = 'green';
+            this.state.iconMessage = 'Connected';
+            console.log(this.state.account);
+        } catch (err) {
+            this.setState({errorMessage: err.message});
+            window.alert(this.state.errorMessage)
+        }
+        this.setState({loading: false});
+    }
+
     render() {
-        const ethereumButton = document.querySelector('.enableEthereumButton');
-
-        ethereumButton.addEventListener('click', () => {
-        //Will Start the metamask extension
-        ethereum.request({ method: 'eth_requestAccounts' });
-        });
-
-        //const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
         
-        //const account = accounts[0];
-
         return (<div>
+
             <div>Hello from Git to Hostgator!</div>
             <div>Welcome to the local Blockchain Network!</div>
+            <h3>Connect with Metamask!</h3>
+            <Button loading={this.state.loading} type='submit' onClick={this.connectMetamask}>Connect</Button>
+            <Icon name='circle' color={this.state.iconColour}>{this.state.iconMessage}</Icon>
             <h3> Make a transaction: </h3>
             <Button type='submit' onClick={this.onClick}>Submit</Button>
-
             <h3> Check Text: </h3>
             <Button type='submit' onClick={this.onClick2}>Check Text</Button>
             <h3> Set new text: </h3>
