@@ -8,11 +8,12 @@ var Tx = require('ethereumjs-tx');
 
 class TestIndex extends Component {
 
-    static async getInitialProps() {
-        if (typeof window.ethereum !== 'undefined') {
-            console.log('MetaMask is installed!');
-          }
-    }
+    // static async getInitialProps() {
+    //     const accounts = await web3.eth.getAccounts();
+    //     console.log(accounts[0]);
+
+    //     return {accounts};
+    // }
 
     // onClick = async(event) => {
     //     const account = this.props.accounts[0];
@@ -89,6 +90,9 @@ class TestIndex extends Component {
     // }
 
     render() {
+        if (typeof window.ethereum !== 'undefined') {
+            console.log('MetaMask is installed!');
+          }
         return (<div>
             <div>Hello from Git to Hostgator!</div>
             <div>Welcome to the local Blockchain Network!</div>
