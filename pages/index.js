@@ -118,7 +118,7 @@ class TestIndex extends Component {
         
         return (<div>
 
-            <div>Hello from Git to Hostgator!</div>
+            <div>Hello it is almost Christmas!</div>
             <div>Welcome to the local Blockchain Network!</div>
             <h3>Connect with Metamask!</h3>
             <Button loading={this.state.loading} type='submit' onClick={this.connectMetamask}>Connect</Button>
