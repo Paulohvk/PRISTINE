@@ -1,0 +1,18 @@
+{
+  "assembly": null,
+  "bytecode": "",
+  "functionHashes": {
+    "SendPayment(address,address,bool)": "5622c3c8"
+  },
+  "gasEstimates": {
+    "creation": {},
+    "external": {},
+    "internal": {}
+  },
+  "interface": "[{\"constant\":false,\"inputs\":[{\"name\":\"b\",\"type\":\"address\"},{\"name\":\"s\",\"type\":\"address\"},{\"name\":\"v\",\"type\":\"bool\"}],\"name\":\"SendPayment\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+  "metadata": "",
+  "opcodes": "",
+  "runtimeBytecode": "",
+  "srcmap": "",
+  "srcmapRuntime": ""
+}
