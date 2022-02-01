@@ -90,9 +90,7 @@ class Submit extends Component {
       // tx.sign(privateKey);
       // var serializedTx = tx.serialize();
       
-      var receipt = await web3.eth
-        .sendSignedTransaction("0x" + txHash.toString("hex"))
-        .on("receipt", console.log);
+      var receipt = await txHash.on("receipt", console.log);
 
         this.setState({successMessage: "Transaction successfull, transaction hash: " + receipt.transactionHash});
     
