@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Message } from "semantic-ui-react";
-import contract from "../../Ethereum/contract";
+import contract from "../../Ethereum/contract1";
 import web3 from "../../Ethereum/web3";
 import { ethers } from "ethers";
 import Common from "ethereumjs-common";
