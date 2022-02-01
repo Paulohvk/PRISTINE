@@ -3,7 +3,7 @@ import testContract from './build/EventTest.json';
 
 const instance = new web3.eth.Contract(
     JSON.parse(testContract.interface),
-    "0xce45befd75ea1159a6c29f12afffaa3e5f5d816e" // <- Data recording - Event contract
+    "0x787114d9d0eb5c06033c8f2ab918d3da6bb7d238" // <- Data recording - Event contract
 );
 
 // import testContract from './build/Test.json';
