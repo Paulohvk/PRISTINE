@@ -49,23 +49,13 @@ class Submit extends Component {
       // console.log(tag);
 
       try {
-      const addressFrom = "0x0af773490541a1a32e6bce0ac319975b1f4734ca";
-      //"0x1206D8C3c73e40c8AfD0D878bbaa28609F9A72a9";
-      var privateKey = new Buffer.from(
-        "6ceeebd2bf996d1998d2778bb86a1c200d4423f1443dc51ee52c92076380e97b",
-        //"e8d1574304a68b5f794d33a842389350d93e49d46b6871571f9b64eaa53131ec",
-        "hex"
-      );
-      var nonceNumber = web3.utils.toHex(
-        await web3.eth.getTransactionCount(addressFrom, "pending")
-      );
-      //console.log(nonceNumber);
+      const addressFrom = ethereum.selectedAddress;
       const customCommon = Common.forCustomChain(
         "mainnet",
         {
-          name: "localchain",
-          networkId: 777,
-          chainId: 777,
+          name: "awschain",
+          networkId: 179324865,
+          chainId: 179324865,
         },
         "petersburg"
       );
@@ -81,7 +71,7 @@ class Submit extends Component {
         .encodeABI();
 
       var rawTx = {
-        nonce: nonceNumber,
+        nonce: '0x00',
         from: addressFrom,
         gasLimit: web3.utils.toHex(100000),
         gasPrice: web3.utils.toHex(10e9),
