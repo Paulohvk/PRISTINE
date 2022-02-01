@@ -83,11 +83,12 @@ class Submit extends Component {
       const txHash = await ethereum.request({
         method: 'eth_sendTransaction',
         params: [transactionParameters],
-      }).then(receipt => {
-        this.setState({successMessage: "Transaction successfull, transaction hash: " + receipt.transactionHash});
-        this.setState({loading: false})
       });
 
+      //.then(receipt => {
+      //   this.setState({successMessage: "Transaction successfull, transaction hash: " + receipt.transactionHash});
+      //   this.setState({loading: false})
+      // })
       // var tx = new Tx.Transaction(rawTx, { common: customCommon });
       // tx.sign(privateKey);
       // var serializedTx = tx.serialize();
