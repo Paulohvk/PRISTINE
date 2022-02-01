@@ -89,7 +89,6 @@ class TestIndex extends Component {
         <Grid verticalAlign="middle">
           <Grid.Row>
             <Grid.Column floated="left" width={13}>
-              <h3>Latest version deployed to Vercel!</h3>
               <h3>Welcome to the Blockchain-powered Data Marketplace!</h3>
               <h3>There are currently {this.props.blockNumber} blocks in the blockchain.</h3>
               <h3>Smart contract address: {this.props.decodedEvents[0].address}.</h3>
