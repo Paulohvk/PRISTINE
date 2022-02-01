@@ -113,7 +113,7 @@ class Show extends Component {
     const dataOwner = "0x" + e.topics[1].substr(26, 64).toUpperCase();
     const dataType = getTags(e);
     const dataID = parseInt(e.topics[2], 16);
-    const cost = decodedData[2]._hex;
+    const cost = web3.utils.fromWei(decodedData[2]._hex,'ether');
     const timestamp = new Date(parseInt(decodedData[1])).toLocaleString();
 
     const colour = "yellow";

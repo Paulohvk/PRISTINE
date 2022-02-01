@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Card, Grid, Segment } from "semantic-ui-react";
+import { Button, Card, Grid, Icon, Segment } from "semantic-ui-react";
 import Layout from "../components/Layout";
 import { Link } from "../routes";
 import getEvents from "../components/getEvents";
@@ -8,6 +8,15 @@ import decodeData from "../components/decodeData";
 import web3 from '../Ethereum/web3';
 
 class TestIndex extends Component {
+  state = {
+    account: '',
+    errorMessage: '',
+    loading: false,
+    iconStatus: false,
+    iconMessage: 'Disconnected',
+    iconColour: 'red'
+  }
+  
   static async getInitialProps() {
     var results = await getEvents();
     const blockNumber = results.blockNumber;
@@ -15,6 +24,23 @@ class TestIndex extends Component {
     // console.log(decodedEvents);
 
     return { blockNumber, decodedEvents };
+  }
+
+  connectMetamask = async(event) => {
+    event.preventDefault();
+    this.setState({loading: true, errorMessage: ''});
+
+    try {
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });        
+        this.state.account = accounts[0];
+        this.state.iconColour = 'green';
+        this.state.iconMessage = 'Connected';
+        console.log(this.state.account);
+    } catch (err) {
+        this.setState({errorMessage: err.message});
+        window.alert(this.state.errorMessage)
+    }
+    this.setState({loading: false});
   }
 
   renderMarketPlace() {
@@ -80,6 +106,9 @@ class TestIndex extends Component {
                   />
                 </a>
               </Link>
+              <h4>Connect with Metamask!</h4>
+              <Button loading={this.state.loading} type='submit' onClick={this.connectMetamask}>Connect</Button>
+              <Icon name='circle' color={this.state.iconColour}>{this.state.iconMessage}</Icon>
             </Grid.Column>
           </Grid.Row>
         </Grid>
