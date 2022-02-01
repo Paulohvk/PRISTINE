@@ -70,7 +70,7 @@ class Submit extends Component {
         )
         .encodeABI();
 
-      var rawTx = {
+      var transactionParameters = {
         nonce: '0x00',
         from: addressFrom,
         gasLimit: web3.utils.toHex(100000),
@@ -79,12 +79,17 @@ class Submit extends Component {
         data: myData,
       };
 
-      var tx = new Tx.Transaction(rawTx, { common: customCommon });
-      tx.sign(privateKey);
-      var serializedTx = tx.serialize();
+      const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+      });
+
+      // var tx = new Tx.Transaction(rawTx, { common: customCommon });
+      // tx.sign(privateKey);
+      // var serializedTx = tx.serialize();
       
       var receipt = await web3.eth
-        .sendSignedTransaction("0x" + serializedTx.toString("hex"))
+        .sendSignedTransaction("0x" + txHash.toString("hex"))
         .on("receipt", console.log);
 
         this.setState({successMessage: "Transaction successfull, transaction hash: " + receipt.transactionHash});
