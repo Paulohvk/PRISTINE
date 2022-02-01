@@ -5,6 +5,7 @@ import { Link } from "../routes";
 import getEvents from "../components/getEvents";
 import getTags from "../components/getTags";
 import decodeData from "../components/decodeData";
+import web3 from '../Ethereum/web3';
 
 class TestIndex extends Component {
   static async getInitialProps() {
@@ -27,7 +28,7 @@ class TestIndex extends Component {
       var dataType = getTags(item);
       const decodedData = decodeData(item);
       const timestamp = new Date(parseInt(decodedData[1])).toLocaleString();
-      const cost = parseInt(decodedData[2]._hex,16);
+      const cost = web3.utils.fromWei(parseInt(decodedData[2]._hex,16).toString(),'ether');
 
       return {
         header: item.transactionHash,
