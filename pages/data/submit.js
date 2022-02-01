@@ -48,7 +48,6 @@ class Submit extends Component {
       }
       // console.log(tag);
 
-      try {
       const addressFrom = ethereum.selectedAddress;
       const customCommon = Common.forCustomChain(
         "mainnet",
@@ -95,11 +94,8 @@ class Submit extends Component {
         this.setState({successMessage: "Transaction successfull, transaction hash: " + receipt.transactionHash});
     
        // Router.pushRoute('/');
-    } catch (error) {
-      this.setState({ errorMessage: error.message });
-    }
-    this.setState({loading: false})
-  };
+       this.setState({loading: false})
+    };
 
   render() {
     return (
