@@ -48,7 +48,6 @@ class Submit extends Component {
       }
       // console.log(tag);
 
-      try {
       const addressFrom = ethereum.selectedAddress;
       const customCommon = Common.forCustomChain(
         "mainnet",
@@ -84,23 +83,20 @@ class Submit extends Component {
       const txHash = await ethereum.request({
         method: 'eth_sendTransaction',
         params: [transactionParameters],
+      }).then(receipt => {
+        this.setState({successMessage: "Transaction successfull, transaction hash: " + receipt.transactionHash});
+        this.setState({loading: false})
       });
-
-      console.log(txHash);
 
       // var tx = new Tx.Transaction(rawTx, { common: customCommon });
       // tx.sign(privateKey);
       // var serializedTx = tx.serialize();
       
-      //var receipt = await txHash.on("receipt", console.log);
-
-      //this.setState({successMessage: "Transaction successfull, transaction hash: " + receipt.transactionHash});
+      // var receipt = await web3.eth
+      //   .sendSignedTransaction("0x" + txHash.toString("hex"))
+      //   .on("receipt", console.log);
     
        // Router.pushRoute('/');
-    } catch (error) {
-      //this.setState({ errorMessage: error.message });
-    }
-    this.setState({loading: false})
   };
 
   render() {
