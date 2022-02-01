@@ -60,11 +60,13 @@ class Submit extends Component {
         "petersburg"
       );
 
+      var minimumPay = web3.utils.toWei(this.state.minPay,'ether');
+
       var myData = contract.methods
         .EmitEvent(
           this.state.type,
           timestamp.toString(),
-          this.state.minPay,
+          minimumPay,
           this.state.id,
           tag
         )
