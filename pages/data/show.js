@@ -40,7 +40,7 @@ class Show extends Component {
 
     const dataID = parseInt(e.topics[2], 16);
     const addressFrom = this.state.buyer_add;
-    const transferValue = decodedData[2]._hex;
+    const transferValue = decodedData[2];
     const recipient = "0x" + e.topics[1].substr(26, 64);
 
     // const recipient = "0xa1b9207bff69cc6149c13b820576403631f0b39d";
